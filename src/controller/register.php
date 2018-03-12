@@ -54,6 +54,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 		<p> You have an error into your password</p>
 		</div>
 		<?php } ?>	
+			<label for="email">Your email :</label>
+			<input type="text" name="email" value="<?php echo htmlentities($email ?? ""); ?>" />
+			<br/>
+				<?php if (!($emailSuccess ?? true)) {?>
+		<div>
+		<p> You have an error into your email</p>
+		</div>
+		<?php } ?>	
 			
 			<label for="password_1">Your password :</label>
 			<input type="password" name="password_1" />
