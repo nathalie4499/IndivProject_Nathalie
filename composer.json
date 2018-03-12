@@ -1,0 +1,19 @@
+{
+    "name": "etudiant/server-lesson",
+    "description": "blabla",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "matthieu88160",
+            "email": "matthieu.vallance@cscfa.fr"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+    	"psr-4": {
+			"": "src/"
+    	}
+    }
+}
