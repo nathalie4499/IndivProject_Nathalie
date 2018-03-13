@@ -2,20 +2,15 @@
 include_once __DIR__.'/init.php';
 
 /* Registration process, inserts user info into the database
- and sends account confirmation email message
  */
 
 // Set session variables to be used on profile.php page
-//$_SESSION['username'] = $_POST['username'];
-$_SESSION['email'] = $_POST['email'];
+//$_SESSION['username'] = $_POST['username'];   
+//$_SESSION['email'] = $_POST['email'];
 //$username = $_SESSION['username'];
 
-// Escape all $_POST variables to protect against SQL injections
-//$username = $mysqli->escape_string($_POST['username']);
-//$email = $mysqli->escape_string($_POST['email']);
-//$password = $mysqli->escape_string(password_hash($_POST['password'], PASSWORD_BCRYPT));
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'] ?? null;
     
     if ($usernameSuccess && $emailSuccess && $passwordSuccess) {
         try {
@@ -27,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         
         // Check if user with that email already exists
-        $email = $_POST['email'] ?? null;
+        
         $sqlQuery = "SELECT * FROM users WHERE email=:email";
 
         $statement = $connection->prepare($sqlQuery);
