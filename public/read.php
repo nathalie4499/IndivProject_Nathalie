@@ -10,10 +10,8 @@
 
  if (isset($_POST['submit'])) 
 {
-	
 	try 
 	{
-		
 		require "../config/app.config.php";
 		require "../common.php";
 		$connection = new PDO($dsn, $username, $password, $options);
@@ -57,12 +55,12 @@ if (isset($_POST['submit']))
 		foreach ($result as $row) 
 		{ ?>
 			<tr>
-				<td><?php echo escape($row["id"]); ?></td>
-				<td><?php echo escape($row["catname"]); ?></td>
-				<td><?php echo escape($row["catbreed"]); ?></td>
-				<td><?php echo escape($row["age"]); ?></td>
-				<td><?php echo escape($row["location"]); ?></td>
-				<td><?php echo escape($row["date"]); ?> </td>
+				<td><?php echo htmlentities($row["id"]); ?></td>
+				<td><?php echo htmlentities($row["catname"]); ?></td>
+				<td><?php echo htmlentities($row["catbreed"]); ?></td>
+				<td><?php echo htmlentities($row["age"]); ?></td>
+				<td><?php echo htmlentities($row["location"]); ?></td>
+				<td><?php echo htmlentities($row["date"]); ?> </td>
 			</tr>
 		<?php 
 		} ?>
@@ -72,7 +70,7 @@ if (isset($_POST['submit']))
 	} 
 	else 
 	{ ?>
-		<blockquote>No results found for <?php echo escape($_POST['location']); ?>.</blockquote>
+		<blockquote>No results found for <?php echo htmlentities($_POST['location']); ?>.</blockquote>
 	<?php
 	} 
 }?> 

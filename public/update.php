@@ -82,12 +82,12 @@ if (isset($_POST['submit']))
 		foreach ($result as $row) 
 		{ ?>
 			<tr>
-				<td><?php echo escape($row["id"]); ?></td>
-				<td><?php echo escape($row["catname"]); ?></td>
-				<td><?php echo escape($row["catbreed"]); ?></td>
-				<td><?php echo escape($row["age"]); ?></td>
-				<td><?php echo escape($row["location"]); ?></td>
-				<td><?php echo escape($row["date"]); ?> </td>
+				<td><?php echo htmlentities($row["id"]); ?></td>
+				<td><?php echo htmlentities($row["catname"]); ?></td>
+				<td><?php echo htmlentities($row["catbreed"]); ?></td>
+				<td><?php echo htmlentities($row["age"]); ?></td>
+				<td><?php echo htmlentities($row["location"]); ?></td>
+				<td><?php echo htmlentities($row["date"]); ?> </td>
 			</tr>
 		<?php 
 		} ?>
@@ -97,7 +97,7 @@ if (isset($_POST['submit']))
 	} 
 	else 
 	{ ?>
-		<blockquote>No results found for <?php echo escape($_POST['location']); ?>.</blockquote>
+		<blockquote>No results found for <?php echo htmlentities($_POST['location']); ?>.</blockquote>
 	<?php
 	} 
 }?> 
@@ -124,9 +124,9 @@ $SelSql = "SELECT * FROM `crud` WHERE id=$id";
 $res = mysqli_query($connection, $SelSql);
 $r = mysqli_fetch_assoc($res);
 if(isset($_POST) & !empty($_POST)){
-	$fname = mysql_real_escape_string($_POST['fname']);
-	$lname = mysql_real_escape_string($_POST['lname']);
-	$email = mysql_real_escape_string($_POST['email']);
+	$fname = mysql_real_htmlentities_string($_POST['fname']);
+	$lname = mysql_real_htmlentities_string($_POST['lname']);
+	$email = mysql_real_htmlentities_string($_POST['email']);
 	$gender = $_POST['gender'];
 	$age = $_POST['age'];
  

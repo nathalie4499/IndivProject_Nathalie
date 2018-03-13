@@ -4,7 +4,6 @@
 <head>
 	<meta charset="utf-8">
 	<title>My Cats Web App</title>
-	<!--  <link rel="stylesheet" href="css/style.css"> --> 
 </head>
 
 <body>
